@@ -1,3 +1,3 @@
 # MSTauams
 
-This is a Teams class manager for students to manage their teams from anywhere
+This is a bookmarklet manager that manages bookmarklets
