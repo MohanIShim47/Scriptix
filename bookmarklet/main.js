@@ -1,1 +1,156 @@
-javascript:(function()%7B(function%20()%20%7B%0A%20%20if%20(document.getElementById(%22bm-launcher%22))%20return%3B%0A%0A%20%20const%20box%20%3D%20document.createElement(%22div%22)%3B%0A%20%20box.id%20%3D%20%22bm-launcher%22%3B%0A%0A%20%20Object.assign(box.style%2C%20%7B%0A%20%20%20%20position%3A%20%22fixed%22%2C%0A%20%20%20%20top%3A%20%2220px%22%2C%0A%20%20%20%20right%3A%20%2220px%22%2C%0A%20%20%20%20zIndex%3A%20%22999999%22%2C%0A%20%20%20%20background%3A%20%22white%22%2C%0A%20%20%20%20border%3A%20%222px%20solid%20black%22%2C%0A%20%20%20%20padding%3A%20%2210px%22%2C%0A%20%20%20%20boxShadow%3A%20%220%200%2010px%20rgba(0%2C0%2C0%2C0.3)%22%2C%0A%20%20%20%20fontFamily%3A%20%22sans-serif%22%2C%0A%20%20%20%20borderRadius%3A%20%228px%22%2C%0A%20%20%20%20minWidth%3A%20%22200px%22%0A%20%20%7D)%3B%0A%0A%20%20const%20title%20%3D%20document.createElement(%22div%22)%3B%0A%20%20title.textContent%20%3D%20%22Bookmarklet%20Launcher%22%3B%0A%20%20Object.assign(title.style%2C%20%7B%0A%20%20%20%20fontWeight%3A%20%22bold%22%2C%0A%20%20%20%20marginBottom%3A%20%228px%22%2C%0A%20%20%20%20fontSize%3A%20%2216px%22%0A%20%20%7D)%3B%0A%20%20box.appendChild(title)%3B%0A%0A%20%20const%20bookmarklets%20%3D%20%7B%0A%0A%20%20%20%20%22Alert%20Hello%22%3A%20function%20()%20%7B%0A%20%20%20%20%20%20alert(%22Hello!%22)%3B%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%22Invert%20Page%20Colors%22%3A%20function%20()%20%7B%0A%20%20%20%20%20%20document.body.style.filter%20%3D%0A%20%20%20%20%20%20%20%20document.body.style.filter%20%3D%3D%3D%20%22invert(1)%22%0A%20%20%20%20%20%20%20%20%20%20%3F%20%22%22%0A%20%20%20%20%20%20%20%20%20%20%3A%20%22invert(1)%22%3B%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%22Show%20Page%20URL%22%3A%20function%20()%20%7B%0A%20%20%20%20%20%20alert(location.href)%3B%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%22Load%20External%20Script%22%3A%20function%20()%20%7B%0A%20%20%20%20%20%20%20%20var%20script%20%3D%20document.createElement(%22script%22)%3B%0A%20%20%20%20%20%20%20%20script.src%20%3D%20%22https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FAugtive85YT%2FPhiPiBeta%40main%2FIXLambda%2Fmain.js%22%3B%0A%20%20%20%20%20%20%20%20document.head.appendChild(script)%3B%0A%20%20%20%20%7D%2C%0A%0A%20%20%20%20%22Executor%22%3A%20function%20()%20%7B%0A%20%20%20%20%20%20var%20s%20%3D%20document.createElement(%22script%22)%3B%0A%20%20%20%20%20%20s.src%20%3D%20%22https%3A%2F%2Fcdn.jsdelivr.net%2Fgh%2FCidCaribou%2FExecutor-Menu%40main%2Fmenu.js%22%3B%0A%20%20%20%20%20%20document.body.appendChild(s)%3B%0A%20%20%20%20%7D%2C%0A%20%20%20%20%22Blooket%20Hacks%22%3A%20function%20()%20%7B%0A%20%20%20%20%20%20var%20s%20%3D%20document.createElement(%22script%22)%3B%0A%20%20%20%20%20%20s.src%20%3D%20%22https%3A%2F%2Fgithub.com%2Fxgui-team%2FX-GUI-BLOOKET-CLIENT%2Fblob%2Fmain%2Fx-gui%2520cheats%2FX-GUI.MIN.JS%22%3B%0A%20%20%20%20%20%20document.body.appendChild(s)%3B%0A%20%20%20%20%7D%0A%20%20%7D%3B%0A%0A%20%20Object.keys(bookmarklets).forEach(name%20%3D%3E%20%7B%0A%20%20%20%20const%20btn%20%3D%20document.createElement(%22button%22)%3B%0A%20%20%20%20btn.textContent%20%3D%20name%3B%0A%0A%20%20%20%20Object.assign(btn.style%2C%20%7B%0A%20%20%20%20%20%20display%3A%20%22block%22%2C%0A%20%20%20%20%20%20width%3A%20%22100%25%22%2C%0A%20%20%20%20%20%20margin%3A%20%224px%200%22%2C%0A%20%20%20%20%20%20padding%3A%20%226px%22%2C%0A%20%20%20%20%20%20cursor%3A%20%22pointer%22%0A%20%20%20%20%7D)%3B%0A%0A%20%20%20%20btn.onclick%20%3D%20bookmarklets%5Bname%5D%3B%0A%20%20%20%20box.appendChild(btn)%3B%0A%20%20%7D)%3B%0A%0A%20%20const%20close%20%3D%20document.createElement(%22button%22)%3B%0A%20%20close.textContent%20%3D%20%22Close%22%3B%0A%0A%20%20Object.assign(close.style%2C%20%7B%0A%20%20%20%20marginTop%3A%20%228px%22%2C%0A%20%20%20%20width%3A%20%22100%25%22%2C%0A%20%20%20%20padding%3A%20%226px%22%2C%0A%20%20%20%20cursor%3A%20%22pointer%22%0A%20%20%7D)%3B%0A%0A%20%20close.onclick%20%3D%20()%20%3D%3E%20box.remove()%3B%0A%20%20box.appendChild(close)%3B%0A%0A%20%20document.body.appendChild(box)%3B%0A%7D)()%3B%0A%0A%7D)()
+(function () {
+  if (document.getElementById("bm-launcher")) return;
+
+  const box = document.createElement("div");
+  box.id = "bm-launcher";
+
+  const fontawesome = document.createElement("link");
+  fontawesome.rel = "stylesheet";
+  fontawesome.href = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css";
+  document.head.appendChild(fontawesome);
+
+  Object.assign(box.style, {
+    position: "fixed",
+    top: "20px",
+    right: "20px",
+    zIndex: "999999",
+    width: "260px",
+    backdropFilter: "blur(12px)",
+    background: "rgba(20,20,30,0.75)",
+    border: "1px solid rgba(255,255,255,0.15)",
+    padding: "14px",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.45)",
+    fontFamily: "Segoe UI, system-ui, sans-serif",
+    borderRadius: "14px",
+    color: "white",
+    userSelect: "none",
+    transition: "transform .2s"
+  });
+
+  const logo = document.createElement("div");
+  logo.innerHTML = '<i class="fa-solid fa-user-secret"></i>';
+  Object.assign(logo.style, {
+    position: "absolute",
+    top: "12px",
+    left: "12px",
+    color: "rgba(255,255,255,0.7)",
+    marginLeft: "70px",
+  });
+  box.appendChild(logo);
+
+  const title = document.createElement("div");
+  title.textContent = "MSTaums";
+
+  Object.assign(title.style, {
+    fontWeight: "600",
+    fontSize: "16px",
+    marginBottom: "10px",
+    paddingBottom: "6px",
+    borderBottom: "1px solid rgba(255,255,255,0.1)",
+    cursor: "move",
+    textAlign: "center"
+  });
+
+  box.appendChild(title);
+
+  const container = document.createElement("div");
+  box.appendChild(container);
+
+  const bookmarklets = {
+    "IXLambda Loader": function () {
+      var script = document.createElement("script");
+      script.src = "https://cdn.jsdelivr.net/gh/Augtive85YT/PhiPiBeta@main/IXLambda/main.js";
+      document.head.appendChild(script);
+    },
+
+    "Executor by X-Gui": function () {
+      var s = document.createElement("script");
+      s.src = "https://cdn.jsdelivr.net/gh/CidCaribou/Executor-Menu@main/menu.js";
+      document.body.appendChild(s);
+    },
+
+    "Blooket Hacks by X-Gui": function () {
+      var s = document.createElement("script");
+      s.src = "https://gl.githack.com/CidCaribou/x-gui/-/raw/main/x-gui.js";
+      document.body.appendChild(s);
+    }
+  };
+
+  Object.keys(bookmarklets).forEach(name => {
+
+    const btn = document.createElement("button");
+    btn.textContent = name;
+
+    Object.assign(btn.style, {
+      width: "100%",
+      margin: "6px 0",
+      padding: "8px",
+      borderRadius: "8px",
+      border: "none",
+      background: "linear-gradient(135deg,#4f8cff,#6e5cff)",
+      color: "white",
+      fontSize: "13px",
+      cursor: "pointer",
+      transition: "all .2s"
+    });
+
+    btn.onmouseenter = () => {
+      btn.style.transform = "scale(1.05)";
+      btn.style.boxShadow = "0 4px 12px rgba(0,0,0,.4)";
+    };
+
+    btn.onmouseleave = () => {
+      btn.style.transform = "scale(1)";
+      btn.style.boxShadow = "none";
+    };
+
+    btn.onclick = bookmarklets[name];
+
+    container.appendChild(btn);
+
+  });
+
+  const close = document.createElement("button");
+  close.textContent = "✕ Close";
+
+  Object.assign(close.style, {
+    marginTop: "10px",
+    width: "100%",
+    padding: "7px",
+    borderRadius: "8px",
+    border: "none",
+    background: "rgba(255,255,255,0.1)",
+    color: "white",
+    cursor: "pointer",
+    transition: "all .2s"
+  });
+
+  close.onmouseenter = () => close.style.background = "rgba(255,255,255,0.2)";
+  close.onmouseleave = () => close.style.background = "rgba(255,255,255,0.1)";
+  close.onclick = () => box.remove();
+
+  box.appendChild(close);
+
+  document.body.appendChild(box);
+
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  title.onmousedown = e => {
+    isDragging = true;
+    offsetX = e.clientX - box.offsetLeft;
+    offsetY = e.clientY - box.offsetTop;
+  };
+
+  document.onmousemove = e => {
+    if (!isDragging) return;
+    box.style.left = e.clientX - offsetX + "px";
+    box.style.top = e.clientY - offsetY + "px";
+    box.style.right = "auto";
+  };
+
+  document.onmouseup = () => {
+    isDragging = false;
+  };
+
+})();
