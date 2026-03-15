@@ -1,3 +1,5 @@
+(function(){
+
 console.log("%cMSTaums Loaded!!", "font-size:20px;font-weight:bold;color:#8a5cff")
 console.log("%cby T.E.D.A", "font-size:13px;font-weight:bold;color:#44aaa4");                                               
 console.log("%cUse Wisely", "font-size:15px;font-weight:bold;color:#42c1a4");
@@ -696,3 +698,5 @@ minimized=false;
 }
 
 });
+
+})();
