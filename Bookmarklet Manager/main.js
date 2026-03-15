@@ -1,6 +1,11 @@
-console.log("%cMSTaums v4.5 loaded", "font-size:20px;font-weight:bold;color:#8a5cff");
-console.log("%cby T.E.D.A", "font-size:13px;font-weight:bold;color:#44aaa4");
-console.log("%cThank you for using it!!!", "font-size:15px;font-weight:bold;color:#42c1a4");
+console.log("%c███╗   ███╗███████╗████████╗ █████╗ ██╗   ██╗███╗   ███╗███████╗    ██╗   ██╗██╗  ██╗   ███████╗██╗██╗██╗", "font-size:20px;font-weight:bold;color:#8a5cff")
+console.log("%c████╗ ████║██╔════╝╚══██╔══╝██╔══██╗██║   ██║████╗ ████║██╔════╝    ██║   ██║██║  ██║   ██╔════╝██║██║██║", "font-size:20px;font-weight:bold;color:#8a5cff")
+console.log("%c██╔████╔██║███████╗   ██║   ███████║██║   ██║██╔████╔██║███████╗    ██║   ██║███████║   ███████╗██║██║██║", "font-size:20px;font-weight:bold;color:#8a5cff")
+console.log("%c██║╚██╔╝██║╚════██║   ██║   ██╔══██║██║   ██║██║╚██╔╝██║╚════██║    ╚██╗ ██╔╝╚════██║   ╚════██║╚═╝╚═╝╚═╝", "font-size:20px;font-weight:bold;color:#8a5cff")
+console.log("%c██║ ╚═╝ ██║███████║   ██║   ██║  ██║╚██████╔╝██║ ╚═╝ ██║███████║     ╚████╔╝      ██║██╗███████║██╗██╗██╗", "font-size:20px;font-weight:bold;color:#8a5cff")
+console.log("%c╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝      ╚═══╝       ╚═╝╚═╝╚══════╝╚═╝╚═╝╚═╝", "font-size:20px;font-weight:bold;color:#8a5cff")
+console.log("%cLoaded", "font-size:13px;font-weight:bold;color:#44aaa4");                                               
+console.log("%cby T.E.D.A", "font-size:15px;font-weight:bold;color:#42c1a4");
 
 const slucide = document.createElement("script");
 slucide.src = "https://unpkg.com/lucide@latest";
