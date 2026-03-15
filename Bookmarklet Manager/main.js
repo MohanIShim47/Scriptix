@@ -1,26 +1,20 @@
-(function () {
-
 console.log("%cMSTaums v4.5 loaded", "font-size:20px;font-weight:bold;color:#8a5cff");
 console.log("%cby T.E.D.A", "font-size:13px;font-weight:bold;color:#44aaa4");
 console.log("%cThank you for using it!!!", "font-size:15px;font-weight:bold;color:#42c1a4");
 
-function loadCSS(url){
-const link=document.createElement("link");
-link.rel="stylesheet";
-link.href=url;
-link.crossOrigin="anonymous";
-document.head.appendChild(link);
-}
+const slucide = document.createElement("script");
+slucide.src = "https://unpkg.com/lucide@latest";
+slucide.onload = () => {
+    lucide.createIcons();
+};
+document.head.appendChild(slucide);
 
-loadCSS("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css");
 
 if(document.getElementById("mstaums-ui")) return;
 
 const style=document.createElement("style");
 
 style.textContent=`
-
-@import url("https://cdn.jsdelivr.net/gh/ryanoasis/nerd-fonts@latest/css/nerd-fonts-generated.css");
 
 :root{
 --ms-bg:rgba(30,30,46,.65);
@@ -168,7 +162,6 @@ transform:translateY(-2px);
 .ms-side-item.active{
 background:var(--ms-accent);
 color:#1e1e2e;
-box-shadow:0 0 8px var(--ms-accent);
 }
 
 .ms-content{
@@ -281,12 +274,12 @@ color:var(--ms-text);
 font-family: var(--ms-font);
 ">
 
-<div class="ms-side-item active" data-page="home"><span><i class="fa-solid fa-house"></i></span>Home</div>
-<div class="ms-side-item" data-page="utilities"><span><i class="fa-solid fa-toolbox"></i></span>Utilities</div>
-<div class="ms-side-item" data-page="scripts"><span><i class="fa-solid fa-code"></i></span>Scripts</div>
-<div class="ms-side-item" data-page="cheats"><span><i class="fa-solid fa-gamepad"></i></span>Cheats</div>
-<div class="ms-side-item" data-page="tools"><span><i class="fa-solid fa-screwdriver-wrench"></i></span>Tools</div>
-<div class="ms-side-item" data-page="settings"><span><i class="fa-solid fa-gear"></i></span>Settings</div>
+<div class="ms-side-item active" data-page="home"><span><i data-lucide="house"></i></span>Home</div>
+<div class="ms-side-item" data-page="utilities"><span><i data-lucide="toolbox"></i></span>Utilities</div>
+<div class="ms-side-item" data-page="scripts"><span><i data-lucide="scroll-text"></i></span>Scripts</div>
+<div class="ms-side-item" data-page="cheats"><span><i data-lucide="gamepad-2"></i></span>Cheats</div>
+<div class="ms-side-item" data-page="tools"><span><i data-lucide="hammer"></i></span>Tools</div>
+<div class="ms-side-item" data-page="settings"><span><i data-lucide="cog"></i></span>Settings</div>
 
 </div>
 
@@ -302,6 +295,7 @@ padding:16px;
 border-radius:10px;
 line-height:1.6;
 font-size:13px;
+color: var(--ms-text)
 ">
 
 <p><b>MSTaums v4.5</b> is a modular bookmarklet toolkit built for running scripts, utilities, and developer tools directly inside your browser.</p>
@@ -315,12 +309,14 @@ display:grid;
 grid-template-columns:repeat(auto-fill,minmax(180px,1fr));
 gap:12px;
 margin-top:12px;
+color: var(--ms-text)
 ">
 
 <div style="
 background:var(--ms-surface);
 padding:14px;
 border-radius:10px;
+color: var(--ms-text)
 ">
 <b><i class="fa-solid fa-toolbox"></i> Utilities</b>
 <p style="font-size:12px;opacity:.8">
@@ -332,6 +328,7 @@ Page tools like color inverter, URL inspector, and helper scripts.
 background:var(--ms-surface);
 padding:14px;
 border-radius:10px;
+color: var(--ms-text)
 ">
 <b><i class="fa-solid fa-code"></i> Scripts</b>
 <p style="font-size:12px;opacity:.8">
@@ -343,6 +340,7 @@ Load external bookmarklet scripts such as IXLambda.
 background:var(--ms-surface);
 padding:14px;
 border-radius:10px;
+color: var(--ms-text)
 ">
 <b><i class="fa-solid fa-gamepad"></i> Cheats</b>
 <p style="font-size:12px;opacity:.8">
@@ -354,6 +352,7 @@ Game scripts and automation tools like Blooket and Prodigy helpers.
 background:var(--ms-surface);
 padding:14px;
 border-radius:10px;
+color: var(--ms-text)
 ">
 <b><i class="fa-solid fa-screwdriver-wrench"></i> Tools</b>
 <p style="font-size:12px;opacity:.8">
@@ -365,6 +364,7 @@ Developer utilities such as the floating Dev Console and Executor.
 background:var(--ms-surface);
 padding:14px;
 border-radius:10px;
+color: var(--ms-text)
 ">
 <b><i class="fa-solid fa-gear"></i> Settings</b>
 <p style="font-size:12px;opacity:.8">
@@ -381,6 +381,7 @@ padding:10px;
 border-radius:8px;
 font-size:12px;
 opacity:.8;
+color: var(--ms-text)
 ">
 
 Tip: Use <b>Ctrl + K</b> to quickly focus the search bar.
@@ -401,6 +402,7 @@ Tip: Use <b>Ctrl + K</b> to quickly focus the search bar.
 <div class="ms-page" id="scripts">
 <div class="ms-header">Scripts</div>
 <button class="ms-button" data-action="ixlambda">IXlambda</button>
+<button class="ms-button" data-action="tab">Tab Disguise</button>
 </div>
 
 <div class="ms-page" id="cheats">
@@ -414,16 +416,19 @@ Tip: Use <b>Ctrl + K</b> to quickly focus the search bar.
 <div class="ms-page" id="tools">
 <div class="ms-header">Tools</div>
 <button class="ms-button" data-action="devc">Dev Console</button>
+<button class="ms-button" data-action="users">MSTaums Userscript Loader</button>
 </div>
 
 <div class="ms-page" id="settings">
 <div class="ms-header">Themes</div>
 
 <select id="theme-selector">
-<option value="mocha">Catppuccin Mocha (default)</option>
+<option value="macchiato">Catppuccin Macchiato (default)</option>
+<option value="mocha">Catppuccin Mocha</option>
 <option value="dark">Dark</option>
 <option value="light">Light</option>
 <option value="hack">Hack</option>
+<option value="childs">Child's Support</option>
 </select>
 
 <div class="ms-header">Font</div>
@@ -511,11 +516,32 @@ s.src="https://cdn.jsdelivr.net/gh/MohanIShim47/AutoClickerBookmarklet3@master/A
 document.head.appendChild(s);
 }
 
+if (action==="users") {
+const s=document.createElement("script");
+s.src="https://raw-githack-com.translate.goog/MohanIShim47/MSTaums/main/Bookmarklet%20Manager/userscripts.js"
+document.head.appendChild(s);
+}
+
+if (action==="tab") {
+const s=document.createElement("script");
+s.src="https://raw-githack-com.translate.goog/MohanIShim47/MSTaums/main/scripts/tabdisguise.js"
+document.head.appendChild(s);
+}
+
 });
 
 function setTheme(theme){
 
 const root=document.documentElement;
+
+if(theme==="macchiato"){
+root.style.setProperty("--ms-bg","#1e1e2e");
+root.style.setProperty("--ms-bar","#181825");
+root.style.setProperty("--ms-surface","#313244");
+root.style.setProperty("--ms-hover","#45475a");
+root.style.setProperty("--ms-text","#cdd6f4");
+root.style.setProperty("--ms-accent","#89b4fa");
+}
 
 if(theme==="mocha"){
 root.style.setProperty("--ms-bg","rgba(30,30,46,.65)");
@@ -532,16 +558,16 @@ root.style.setProperty("--ms-bar","rgba(30,30,32,.8)");
 root.style.setProperty("--ms-surface","rgba(45,45,48,.6)");
 root.style.setProperty("--ms-hover","rgba(70,70,75,.7)");
 root.style.setProperty("--ms-text","#ffffff");
-root.style.setProperty("--ms-accent","#4dabf7");
+root.style.setProperty("--ms-accent","#ffffff7a");
 }
 
 if(theme==="light"){
 root.style.setProperty("--ms-bg","rgba(245,245,245,.8)");
 root.style.setProperty("--ms-bar","rgba(225,225,225,.85)");
-root.style.setProperty("--ms-surface","rgba(255,255,255,.7)");
+root.style.setProperty("--ms-surface","rgba(189, 189, 189, 0.7)");
 root.style.setProperty("--ms-hover","rgba(210,210,210,.7)");
 root.style.setProperty("--ms-text","#222");
-root.style.setProperty("--ms-accent","#5c7cfa");
+root.style.setProperty("--ms-accent","#ffffff7a");
 }
 
 if(theme==="hack"){
@@ -550,7 +576,16 @@ root.style.setProperty("--ms-bar","rgba(0,0,0,.9)");
 root.style.setProperty("--ms-surface","rgba(0,0,0,.65)");
 root.style.setProperty("--ms-hover","rgba(20,20,20,.9)");
 root.style.setProperty("--ms-text","#15ff00");
-root.style.setProperty("--ms-accent","#00ff88");
+root.style.setProperty("--ms-accent","#15ff00");
+}
+
+if(theme==="childs"){
+root.style.setProperty("--ms-bg","#7dc4e4");
+root.style.setProperty("--ms-bar","#8aadf4");
+root.style.setProperty("--ms-surface","#939ab7");
+root.style.setProperty("--ms-hover","#b7bdf8");
+root.style.setProperty("--ms-text","#cad3f5");
+root.style.setProperty("--ms-accent","rgb(238, 153, 160)");
 }
 
 }
@@ -661,5 +696,3 @@ minimized=false;
 }
 
 });
-
-})();
