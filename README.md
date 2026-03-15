@@ -18,7 +18,7 @@ Scrolling on some websites don't work!
 I usally release a new update every day unless I'm working on a big other than that you'll probally see another release every day. My release are just changelogs and the version name.
 
 ## Other info
-If you want to see the current changelog go to: https://github.com/MohanISher47/MSTaums/releases/tag/v3.1
+If you want to see the current changelog go to: https://github.com/MohanISher47/MSTaums/releases/tag/v4.5
 
 If you have any bugs on mstaums v4.5 you need me to fix or want me to add a certain bookmarklet make an issue.
 
