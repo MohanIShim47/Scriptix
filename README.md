@@ -5,7 +5,7 @@
 ## How to use MSTaums v4 <br> Pronounced "Ehm-Ess-Tomes"
 Copy the code below and paste it into the url input of your bookmarklet. If you are having trouble check out Bookmarklet Manager/ReadMe.md to see further instructions.
 
-## License for MSTaumms
+## License for MSTaums
 Please read the license to make sure you don't violate it.
 
 ```js
