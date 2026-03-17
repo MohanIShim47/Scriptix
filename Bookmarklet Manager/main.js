@@ -122,7 +122,6 @@ width:18px;
 height:18px;
 margin-left:10px;
 margin-right:6px;
-border-radius:4px;
 }
 
 .ms-title{
@@ -319,7 +318,7 @@ color: var(--ms-text)
   }
 }
 ">
-    <img style="height:100px; border-radius:8px;" src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/icon.png">
+    <img style="height:100px;" src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/icon.png">
     <div>
         <p><b>Scriptix v4.5</b> is a modular bookmarklet toolkit built for running scripts, utilities, and developer tools directly inside your browser.</p>
         <p>This interface works like a lightweight script hub with modules organized into categories.</p>
