@@ -48,9 +48,14 @@ Scriptix is a **powerful bookmarklet-based UI system** that lets you run scripts
 2. Edit the bookmark  
 3. Paste the code below into the URL field
 
+## 📋 Changelog
+
+Go to this link to see the changelog:
+<a href="https://github.com/MohanIShim47/Scriptix/releases/tag/v5-BETA">Changelog for Current Version</a>
+
 ---
 
-## 📋 Bookmarklet Code
+## 💻 Bookmarklet Code
 
 ```js
 javascript:(function()%7Bvar script %3D document.createElement("script")%3B%0Ascript.src %3D "https%3A%2F%2Fraw-githack-com.translate.goog%2FMohanIShim47%2FScriptix%2Fmain%2Fsrc%2Fmain.js"%3B%0Adocument.head.appendChild(script)%3B%7D)()
