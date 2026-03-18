@@ -1,6 +1,6 @@
 # Scriptix v4.5
 
-<img align="center" src="icon.png" width="10px">
+<img align="center" src="icon.png" width="70px">
 
 ## How to use Scriptix v4.5
 **Copy the code below and paste it into the url input of your bookmarklet.** If you are having trouble check out Bookmarklet Manager/ReadMe.md to see further instructions.
