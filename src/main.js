@@ -339,7 +339,7 @@
             <div class="ms-btn ms-close"></div>
             <div class="ms-btn ms-min"></div>
         </div>
-        <img class="ms-icon" src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/icon.png">
+        <img class="ms-icon" src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/src/icon.png">
         <div class="ms-title">Scriptix v4.5</div>
       </div>
 
@@ -373,7 +373,7 @@
 
             <div style="background:var(--ms-surface); padding:16px; border-radius:10px; line-height:1.6; font-size:13px; color:var(--ms-text);">
                 <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
-                <img style="height:100px;"src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/icon.png">
+                <img style="height:100px;"src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/src/icon.png">
                 <div>
                     <p>
                     <b>Scriptix v4.5</b> is a modular bookmarklet toolkit built for running scripts,
@@ -457,6 +457,9 @@
             </div>
 
             <div class="ms-page" id="settings">
+              <p align="center">
+                <img src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/src/icon.png" width="120px">
+              </p>
               <div class="ms-header">Themes</div>
               <select id="theme-selector">
                   <option value="macchiato">Catppuccin Macchiato (default)</option>
