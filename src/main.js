@@ -339,7 +339,7 @@
             <div class="ms-btn ms-min"></div>
         </div>
         <img class="ms-icon" src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/src/img/icon.png">
-        <div class="ms-title">Scriptix v4.5</div>
+        <div class="ms-title">Scriptix: LOAD 'EM ALL WITH ONE CLICK</div>
       </div>
 
       <div class="ms-layout">
@@ -368,14 +368,14 @@
 
         <div class="ms-content">
             <div class="ms-page active" id="home">
-            <div class="ms-header">Welcome to Scriptix v4.5</div>
+            <div class="ms-header">Welcome to Scriptix</div>
 
             <div style="background:var(--ms-surface); padding:16px; border-radius:10px; line-height:1.6; font-size:13px; color:var(--ms-text);">
                 <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
                 <img style="height:100px;"src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/src/img/icon.png">
                 <div>
                     <p>
-                    <b>Scriptix v4.5</b> is a modular bookmarklet toolkit built for running scripts,
+                    <b>Scriptix</b> is a modular bookmarklet toolkit built for running scripts,
                     utilities, and developer tools directly inside your browser.
                     </p>
                     <p>
@@ -417,7 +417,7 @@
                   <div style="background:var(--ms-surface); padding:14px; border-radius:10px;">
                     <b><i class="fa-solid fa-gear"></i> Settings</b>
                     <p style="font-size:12px;opacity:.8;">
-                        Customize themes and preferences for Scriptix v4.5.
+                        Customize themes and preferences for Scriptix.
                     </p>
                   </div>
               </div>
@@ -452,12 +452,13 @@
             <div class="ms-page" id="tools">
               <div class="ms-header">Tools</div>
               <button class="ms-button" data-action="devc">Dev Console</button>
-              <button class="ms-button" data-action="users">Scriptix Userscript Loader</button>
+              <button class="ms-button" data-action="users">Scriptix Userscript Manager Loader</button>
             </div>
 
             <div class="ms-page" id="settings">
               <p align="center">
                 <img src="https://raw-githubusercontent-com.translate.goog/MohanIShim47/Scriptix/main/src/img/icon.png" width="120px">
+                Settings
               </p>
               <div class="ms-header">Themes</div>
               <select id="theme-selector">
@@ -526,15 +527,14 @@
       applyGlow(isOn);
     };
   }
-      
-// reusable script loader (prevents duplicates)
-function loadScript(src) {
-  if (document.querySelector(`script[src="${src}"]`)) return;
 
-  const s = document.createElement("script");
-  s.src = src;
-  document.head.appendChild(s);
-}
+  function loadScript(src) {
+    if (document.querySelector(`script[src="${src}"]`)) return;
+
+    const s = document.createElement("script");
+    s.src = src;
+    document.head.appendChild(s);
+  }
 
   const actions = {
     hello: () => alert("Hello!"),
@@ -560,9 +560,9 @@ function loadScript(src) {
 
     aclick: () => loadScript("https://cdn.jsdelivr.net/gh/MohanIShim47/AutoClickerBookmarklet3@master/AutoClicker.js"),
 
-    users: () => loadScript("https://raw-githack-com.translate.goog/MohanIShim47/Scriptix/main/Bookmarklet%20Manager/userscripts.js"),
+    users: () => loadScript("https://raw-githack-com.translate.goog/MohanIShim47/Scriptix/main/src/scripts/userscripts.js"),
 
-    tab: () => loadScript("https://raw-githack-com.translate.goog/MohanIShim47/Scriptix/main/scripts/tabdisguise.js")
+    tab: () => loadScript("https://raw-githack-com.translate.goog/MohanIShim47/Scriptix/main/src/scripts/tabdisguise.js")
   };
 
   shadow.addEventListener("click", (e) => {
