@@ -10,7 +10,7 @@
   <img src="https://img.shields.io/github/stars/MohanIShim47/Scriptix?color=b4befe&style=border-radius:%208px;,%20height%3A%20300rem">
 </p>'
 
-<p align="center">
+<p align="center" style="margin: 0px;">
   <b>A modular bookmarklet toolkit for scripts, utilities, and browser tools</b>
 </p>
 
