@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b>A modular bookmarklet toolkit for scripts, utilities, and browser tools</b>
+  <b>A modular bookmarklet toolkit for scripts, utilities, and browser tools that reminds you modding is your right</b>
 </p>
 
 ---
