@@ -1,4 +1,4 @@
-import { omegaIota } from "./dev";
+import { omegaIota } from "https://raw-githack-com.translate.goog/MohanIShim47/Scriptix/main/src/dev.js";
 
 (function () {
   alert("Access granted!");
