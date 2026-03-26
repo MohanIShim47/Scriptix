@@ -329,6 +329,85 @@
               transform: scale(0.92);
           }
 
+        .ms-settings {
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+        }
+
+        .ms-settings-section {
+          background: var(--ms-surface);
+          border: 1px solid var(--ms-border);
+          border-radius: 14px;
+          padding: 16px;
+          box-shadow: var(--ms-shadow);
+        }
+
+        .ms-settings-section.danger {
+          border-color: rgba(255, 80, 80, 0.4);
+        }
+
+        .ms-settings-title {
+          font-size: 14px;
+          font-weight: 600;
+          color: var(--ms-text);
+          margin-bottom: 12px;
+        }
+
+        .ms-setting-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin-bottom: 14px;
+        }
+
+        .ms-setting-row:last-child {
+          margin-bottom: 0;
+        }
+        
+        .ms-setting-row:hover {
+          background: rgba(255,255,255,0.03);
+          border-radius: 8px;
+          padding: 6px;
+          margin: -6px;
+        }
+
+        .ms-setting-label {
+          font-size: 13px;
+          color: var(--ms-text);
+        }
+
+        .ms-setting-desc {
+          font-size: 11px;
+          color: var(--ms-subtext);
+        }
+
+        .ms-color {
+          width: 42px;
+          height: 28px;
+          border: none;
+          border-radius: 8px;
+          background: none;
+          cursor: pointer;
+        }
+
+        .ms-reset-btn {
+          width: 100%;
+          padding: 10px;
+          border-radius: 10px;
+          border: none;
+          cursor: pointer;
+          font-size: 13px;
+          font-weight: 600;
+          background: rgba(255, 80, 80, 0.15);
+          color: #ff6b6b;
+          transition: 0.2s;
+        }
+
+        .ms-reset-btn:hover {
+          background: rgba(255, 80, 80, 0.25);
+        }
+
           ${document.querySelector("style")?.textContent || ""}
           `;
     shadow.appendChild(style);
@@ -478,29 +557,64 @@
                       <div class="ms-header">Chat</div>
                       <button class="ms-button" data-action="chat">Open Chat</button>                    
                       </div>
+                      
+                      <div class="ms-page" id="settings"> 
+                        <div class="ms-settings">
 
-                      <div class="ms-page" id="settings">
-                      <p class="ms-header" align="center">Settings</p>
-                      <div class="ms-header">Themes</div>
-                      <select id="theme-selector">
-                          <option value="macchiato">Catppuccin Macchiato (default)</option>
-                          <option value="mocha">Catppuccin Mocha</option>
-                          <option value="dark">Dark</option>
-                          <option value="light">Light</option>
-                          <option value="hack">Hack</option>
-                      </select>
-                      <div style="margin-top:14px;">
-                          <div style="color:var(--ms-text); font-size:13px; margin-bottom:6px;">
-                          Glow Effect
+                          <div class="ms-settings-section">
+                            <div class="ms-settings-title">Appearance</div>
+
+                            <div class="ms-setting-row">
+                              <div>
+                                <div class="ms-setting-label">Accent Color</div>
+                                <div class="ms-setting-desc">Primary highlight color</div>
+                              </div>
+                              <input type="color" id="accent-picker" class="ms-color">
+                            </div>
+
+                            <div class="ms-setting-row">
+                              <div>
+                                <div class="ms-setting-label">UI Scale</div>
+                                <div class="ms-setting-desc">Adjust interface size</div>
+                              </div>
+                              <input type="range" id="scale-slider" min="0.7" max="1.3" step="0.05">
+                            </div>
+
+                            <div class="ms-setting-row">
+                              <div>
+                                <div class="ms-setting-label">Blur Effects</div>
+                                <div class="ms-setting-desc">Frosted glass background</div>
+                              </div>
+                              <button class="ms-toggle" id="blur-toggle">
+                                <span class="ms-toggle-track">
+                                  <span class="ms-toggle-thumb"></span>
+                                </span>
+                              </button>
+                            </div>
+
+                            <div class="ms-setting-row">
+                              <div>
+                                <div class="ms-setting-label">Glow Effects</div>
+                                <div class="ms-setting-desc">Accent glow styling</div>
+                              </div>
+                              <button class="ms-toggle" id="glow-toggle">
+                                <span class="ms-toggle-track">
+                                  <span class="ms-toggle-thumb"></span>
+                                </span>
+                              </button>
+                            </div>
+
                           </div>
-                          <button class="ms-toggle" id="glow-toggle">
-                          <span class="ms-toggle-track">
-                              <span class="ms-toggle-thumb">
-                              <i data-lucide="zap"></i>
-                              </span>
-                          </span>
-                          </button>
-                      </div>
+
+                          <div class="ms-settings-section danger">
+                            <div class="ms-settings-title">Danger Zone</div>
+
+                            <button class="ms-reset-btn" id="reset-settings">
+                              Reset All Settings
+                            </button>
+                          </div>
+
+                        </div>
                       </div>
               </div>
 
@@ -509,6 +623,22 @@
 
     shadow.appendChild(ui);
 
+    const $ = (sel) => shadow.querySelector(sel);
+    const $$ = (sel) => shadow.querySelectorAll(sel);
+
+    function getSettings() {
+      try {
+        return JSON.parse(localStorage.getItem(SETTINGS_KEY)) || {};
+      } catch {
+        return {};
+      }
+    }
+
+    const savedPos = getSettings().position;
+    if (savedPos) {
+      Object.assign(ui.style, savedPos);
+    }
+
     const slucide = document.createElement("script");
     slucide.src = "https://unpkg.com/lucide@latest";
     slucide.onload = () => {
@@ -516,11 +646,17 @@
     };
     document.head.appendChild(slucide);
 
-    const $ = (sel) => shadow.querySelector(sel);
-    const $$ = (sel) => shadow.querySelectorAll(sel);
+    // Scriptix Settings System
+    const SETTINGS_KEY = "scriptix-settings";
+
+    function setSettings(newSettings) {
+      const current = getSettings();
+      const updated = { ...current, ...newSettings };
+      localStorage.setItem(SETTINGS_KEY, JSON.stringify(updated));
+      return updated;
+    }
 
     // Open as blob URL. Thanks SUDO for the help with the Chat opening
-
     function openLink() {
       var chatHtmlData = `
               <!DOCTYPE html>
@@ -831,6 +967,72 @@
       }
     }
 
+    const root = $("#scriptix-ui");
+    const settings = getSettings();
+
+    // Accent color
+    const accentPicker = $("#accent-picker");
+    if (accentPicker) {
+      const savedAccent = settings.accent || root.style.getPropertyValue("--ms-accent");
+      if (savedAccent) {
+        accentPicker.value = savedAccent;
+        root.style.setProperty("--ms-accent", savedAccent);
+      }
+
+      accentPicker.oninput = () => {
+        root.style.setProperty("--ms-accent", accentPicker.value);
+        setSettings({ accent: accentPicker.value });
+
+        const glowOn = localStorage.getItem("scriptix-glow") === "true";
+        applyGlow(glowOn);
+      };
+    }
+
+    // UI Scale
+    const scaleSlider = $("#scale-slider");
+    if (scaleSlider) {
+      const savedScale = settings.scale || 1;
+      scaleSlider.value = savedScale;
+      ui.style.transform = `scale(${savedScale})`;
+
+      scaleSlider.oninput = () => {
+        const scale = parseFloat(scaleSlider.value);
+        ui.style.transform = `scale(${scale})`;
+        setSettings({ scale });
+      };
+    }
+
+    // Blur toggle
+    function applyBlur(enabled) {
+      ui.style.backdropFilter = enabled ? "blur(20px) saturate(140%)" : "none";
+    }
+
+    const blurToggle = $("#blur-toggle");
+    if (blurToggle) {
+      const blurEnabled = settings.blur !== false;
+
+      blurToggle.classList.toggle("active", blurEnabled);
+      applyBlur(blurEnabled);
+
+      blurToggle.onclick = () => {
+        const newState = !blurToggle.classList.contains("active");
+        blurToggle.classList.toggle("active", newState);
+
+        applyBlur(newState);
+        setSettings({ blur: newState });
+      };
+    }
+
+    // Reset settings
+    const resetBtn = $("#reset-settings");
+    if (resetBtn) {
+      resetBtn.onclick = () => {
+        if (!confirm("Reset all Scriptix settings?")) return;
+        localStorage.removeItem(SETTINGS_KEY);
+        location.reload();
+      };
+    }
+
     renderCustomScripts();
 
     let dragging = false,
@@ -863,6 +1065,15 @@
     document.addEventListener("pointerup", () => {
       dragging = false;
       resizing = false;
+
+      setSettings({
+        position: {
+          left: ui.style.left,
+          top: ui.style.top,
+          width: ui.style.width,
+          height: ui.style.height
+        }
+      });
     });
 
     let minimized = false;
