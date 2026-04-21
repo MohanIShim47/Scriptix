@@ -5,5 +5,5 @@
     l.rel = 'shortcut icon';
     l.href = 'https://statics.teams.cdn.live.net/evergreen-assets/icons/Teams_Logo_v2025_80x80.png';
     document.getElementsByTagName('head')[0].appendChild(l);
-    document.title = 'Microsoft Teams';
+    document.title = 'Teams and Channels | General | Microsoft Teams';
 })();
